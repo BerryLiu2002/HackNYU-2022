@@ -22,6 +22,9 @@ function App() {
         <Route path="/main" element={<Main isAuth={isAuth} />} />
         <Route path="/entry" element={<EnterFood />} />
       </Routes>
+      {/* <footer>
+        <a href="https://www.freepik.com/vectors/background">Background vector created by ddraw - www.freepik.com</a>
+      </footer> */}
     </Router>
   );
 }

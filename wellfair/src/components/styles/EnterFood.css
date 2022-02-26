@@ -1,5 +1,4 @@
 .entry-container {
-  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,11 +8,14 @@
 .entry-container > input {
   font-size: large;
   padding: 5px 5px;
+  background-color: rgba(107, 115, 126, 0.5);
+  border: 1px solid black;
 }
 
 .entry-container > button {
   font-size: large;
   padding: 5px 5px;
-  background: none;
+  background-color: rgba(107, 115, 126, 0.5);
+  border-radius: 10px;
   border: 1px solid black;
 }

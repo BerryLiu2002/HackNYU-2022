@@ -1,0 +1,42 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.health-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.health-container > img {
+  position: relative;
+  left: 5.5rem;
+}
+
+.shield-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  position: relative;
+  bottom: 3.5rem;
+}
+
+.shield-container > img {
+  position: relative;
+  left: 5.5rem;
+}
+
+.entries {
+  margin: auto;
+  margin-top: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entries > button {
+  background-color: rgba(107, 115, 126, 0.5);
+  border: 1px solid rgb(54, 135, 138);
+  padding: 5px;
+}
