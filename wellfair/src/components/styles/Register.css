@@ -34,3 +34,9 @@
   color: black;
   margin-top: 9px;
 }
+
+.error-message {
+  background-color: rgb(236, 78, 78);
+  padding: 1rem 1rem;
+  font-size: large;
+}
