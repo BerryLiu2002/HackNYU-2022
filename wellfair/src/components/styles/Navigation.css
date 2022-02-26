@@ -17,3 +17,10 @@
   text-decoration: none;
   color: white;
 }
+
+.navigation-container > button {
+  background: none;
+  border: 0;
+  color: white;
+  font-size: large;
+}

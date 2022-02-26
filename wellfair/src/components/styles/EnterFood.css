@@ -1,0 +1,19 @@
+.entry-container {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.entry-container > input {
+  font-size: large;
+  padding: 5px 5px;
+}
+
+.entry-container > button {
+  font-size: large;
+  padding: 5px 5px;
+  background: none;
+  border: 1px solid black;
+}
