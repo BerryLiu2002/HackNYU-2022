@@ -1,0 +1,36 @@
+.register-container {
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5.5rem;
+}
+
+.register-container > h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.register-container > input {
+  font-size: larger;
+  padding: 5px 5px;
+  border-radius: 7px;
+  border-width: 1px;
+  border-color: black;
+}
+
+.register-container > button {
+  font-size: larger;
+  width: 60%;
+  margin-top: 20px;
+  padding: 3px 3px;
+  border-radius: 7px;
+}
+
+.has-account-link {
+  color: black;
+  margin-top: 9px;
+}
