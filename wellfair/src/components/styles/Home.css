@@ -1,0 +1,19 @@
+.home-container {
+  padding: 16px 0px;
+  width: 70%;
+  margin: auto;
+  margin-top: 7rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: burlywood;
+  color: black;
+}
+
+.join-community {
+  margin-top: 4rem;
+  color: blue;
+  font-weight: 500;
+}

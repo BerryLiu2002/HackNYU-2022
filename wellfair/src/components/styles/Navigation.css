@@ -1,0 +1,19 @@
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+  padding: 1.5rem 1.5rem;
+  padding-right: 2rem;
+  background-color: burlywood;
+}
+
+.navigation-container > h3 {
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+}
+
+.signin-link {
+  text-decoration: none;
+  color: white;
+}
