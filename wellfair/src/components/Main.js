@@ -4,7 +4,7 @@ import "./styles/Main.css";
 import ProgessBar from "./ProgressBar";
 import Health from "./images/health.png";
 import Shield from "./images/shield.png";
-
+import FoodIcon from "./images/food.png";
 import Toggle from "./Toggle";
 import EnterFood from "./EnterFood";
 
@@ -13,10 +13,15 @@ function Main(props) {
 
   const [completion, setCompletion] = useState(100);
   const [shield, setShield] = useState(0);
-  const [selection, setSelection] = useState(false);
+  const [selection1, setSelection1] = useState(false);
+  const [selection2, setSelection2] = useState(false);
 
-  function goToSelection() {
-    setSelection(true);
+  function goToSelection1() {
+    setSelection1(true);
+  }
+
+  function goToSelection2() {
+    setSelection2(true);
   }
 
   return (
@@ -32,8 +37,8 @@ function Main(props) {
       <Toggle />
 
       <div className="entries">
-        {!selection ? <button onClick={goToSelection}>Exercise</button> : <EnterFood />}
-        {!selection ? <button onClick={goToSelection}>Calorie</button> : <EnterFood />}
+        {/* {!selection1 ? <button onClick={goToSelection1}>Exercise</button> : <EnterFood />} */}
+        {!selection2 ? <img onClick={goToSelection2} className="entries-img" src={FoodIcon} /> : <EnterFood />}
       </div>
     </div>
   );

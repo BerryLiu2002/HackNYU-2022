@@ -17,18 +17,17 @@ function Signin(props) {
     } else {
       signInApp();
     }
-  }
-
-  async function signInApp() {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      props.setIsAuth(true);
-      navigate("/main");
-    } catch (error) {
-      if (error.message.includes("auth/wrong-password")) {
-        setErrorMessage("Wrong Password.");
-      } else if (error.message.includes("auth/user-not-found")) {
-        setErrorMessage("Email does not exist.");
+    async function signInApp() {
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        props.setIsAuth(true);
+        navigate("/main");
+      } catch (error) {
+        if (error.message.includes("auth/wrong-password")) {
+          setErrorMessage("Wrong Password.");
+        } else if (error.message.includes("auth/user-not-found")) {
+          setErrorMessage("Email does not exist.");
+        }
       }
     }
   }
