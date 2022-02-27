@@ -11,7 +11,15 @@ function Signin(props) {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  async function handleClick() {
+  function handleClick() {
+    if (email === "" || password === "") {
+      setErrorMessage("Empty Fields");
+    } else {
+      signInApp();
+    }
+  }
+
+  async function signInApp() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       props.setIsAuth(true);
@@ -36,7 +44,7 @@ function Signin(props) {
       <Link className="no-account-link" to="/register">
         Don't have an account? Register.
       </Link>
-      {errorMessage !== "" && <div className="error-message">{errorMessage}</div>}
+      {errorMessage !== "" && <div className="error-message shake-anim">{errorMessage}</div>}
     </div>
   );
 }

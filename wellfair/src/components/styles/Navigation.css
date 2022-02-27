@@ -4,7 +4,7 @@
   font-size: larger;
   padding: 1.5rem 1.5rem;
   padding-right: 2rem;
-  background-color: burlywood;
+  background-color: rgba(100, 155, 228, 0.5);
 }
 
 .navigation-container > h3 {

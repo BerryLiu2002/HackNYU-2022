@@ -8,7 +8,7 @@
   flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: burlywood;
+  background-color: rgba(100, 228, 228, 0.5);
   color: black;
 }
 
@@ -16,4 +16,25 @@
   margin-top: 4rem;
   color: blue;
   font-weight: 500;
+}
+
+.op {
+  opacity: 1;
+}
+
+.container {
+  text-align: center;
+}
+
+.container > button {
+  background-color: rgba(100, 155, 228, 0.8);
+  margin-top: 3rem;
+  font-size: large;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.container-link {
+  color: white;
+  text-decoration: none;
 }
