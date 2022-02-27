@@ -13,7 +13,6 @@ def getCal(food_name, grams):
     }
     request = requests.post(endpoint + "/v2/natural/nutrients", headers=header, data=payload)
     response = request.json()
-    # print(response)
     servCal = response['foods'][0]['nf_calories']
     servGram = response['foods'][0]['serving_weight_grams']
     calPerGram = servCal/servGram
@@ -25,12 +24,8 @@ def autoFillFood(user_in, limit=5):
     }
     request = requests.get(endpoint + "/v2/search/instant", headers=header, params=payload)
     response = request.json()
-    return parse_aF(response, limit)
-
-def parse_aF(response, limit):
-    common = response["common"][0:limit+1]
-    topL = [item["food_name"] for item in common]
-    return topL
+    food = response["common"][0]["food_name"]
+    return food
 
 # uIn = input("Enter the food item: ")
 # food = autoFillFood(uIn)

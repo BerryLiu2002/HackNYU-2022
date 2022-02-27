@@ -36,22 +36,17 @@ class Users(db.Model):
         self.height = height
         self.age = age
 
-# GET:
-# request.args
-# stores JSON in params
-# POST:
-# request.get_json(force=True)
-# store JSON in body
-
-
-
 @app.route('/signup', methods=['POST'])
 def signup():
+    """
+    Input: username<string>, password, calLimit, exGoal, gender, weight
+    :return:
+    """
     if request.method == 'POST':
         username = request.form.get("username")
         user = Users.query.filter_by(username=username).first()
         if user:
-            return {"result":"User already exists"}
+            return {"result": "User already exists"}
         password = request.form.get("password")
         calLimit = request.form.get("calLimit")
         exGoal = request.form.get("exGoal")
@@ -84,19 +79,6 @@ def logout():
     session['logged_in'] = None
     return {"result":"Successfully logged out"}
 
-@app.route('/getFood', methods=['GET'])
-def getFood():
-    """
-    Takes in params as a JSON with 'food' mapped to the user input for food
-    :return:
-    JSON object with 'choices' mapped to a list of the top 5 relevant foods
-    """
-    if request.method == "GET":
-        data = request.args
-        foodInput = data.get("food")
-        choices = autoFillFood(foodInput)
-        return jsonify({'choices': choices})
-
 @app.route('/getCalories/<string:source>', methods=['POST'])
 def getCalories(source):
     """
@@ -107,7 +89,8 @@ def getCalories(source):
         username = session['logged_in']
         user = Users.query.filter_by(username=username).first()
         if source == "food":
-            foodName = data.get('food')
+            uIn = data.get('food')
+            foodName = autoFillFood(uIn)
             weight = int(data.get('weight'))
             calories = getCal(foodName, weight)
             user.calCurr += calories
