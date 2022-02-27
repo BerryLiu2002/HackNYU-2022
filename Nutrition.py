@@ -1,7 +1,7 @@
 import requests
 APP_KEY = "fcce5ca20917600fed8d88b09ec5246e"
 APP_ID = "5a8d7a07"
-endpoint = "https://trackapi.nutritionix.com/"
+endpoint = "https://trackapi.nutritionix.com"
 header = {
         "x-app-id": APP_ID,
         "x-app-key": APP_KEY,
@@ -23,7 +23,7 @@ def autoFillFood(user_in, limit=5):
     payload = {
         "query": user_in
     }
-    request = requests.get(endpoint + "v2/search/instant", headers=header, params=payload)
+    request = requests.get(endpoint + "/v2/search/instant", headers=header, params=payload)
     response = request.json()
     return parse_aF(response, limit)
 
@@ -32,11 +32,11 @@ def parse_aF(response, limit):
     topL = [item["food_name"] for item in common]
     return topL
 
-uIn = input("Enter the food item: ")
-food = autoFillFood(uIn)
-print(food)
-ind = int(input("Enter 0-4 based on the index you choose: "))
-weight = int(input("Enter the weight in grams: "))
-chosen = food[ind]
-calories = getCal(chosen, weight)
-print(f"Calories for {weight} grams of {chosen}: {calories} calories")
+# uIn = input("Enter the food item: ")
+# food = autoFillFood(uIn)
+# print(food)
+# ind = int(input("Enter 0-4 based on the index you choose: "))
+# weight = int(input("Enter the weight in grams: "))
+# chosen = food[ind]
+# calories = getCal(chosen, weight)
+# print(f"Calories for {weight} grams of {chosen}: {calories} calories")
