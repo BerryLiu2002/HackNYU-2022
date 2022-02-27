@@ -24,16 +24,15 @@ function Register(props) {
     } else {
       setErrorMessage("Required fields missing");
     }
-  }
-
-  async function createUser() {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      props.setIsAuth(true);
-      navigate("/main");
-    } catch (error) {
-      if (error.message.includes("auth/email-already-in-use")) {
-        setErrorMessage("Email is already in use.");
+    async function createUser() {
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        props.setIsAuth(true);
+        navigate("/main");
+      } catch (error) {
+        if (error.message.includes("auth/email-already-in-use")) {
+          setErrorMessage("Email is already in use.");
+        }
       }
     }
   }
