@@ -8,6 +8,12 @@ header = {
         "x-remote-user-id": "0"
     }
 def getCal(food_name, grams):
+    """
+    :param food_name:
+    :param grams:
+    :return:
+    Calories gained from eating food <int>
+    """
     payload = {
         "query": food_name
     }
@@ -18,7 +24,12 @@ def getCal(food_name, grams):
     calPerGram = servCal/servGram
     return int(grams * calPerGram)
 
-def autoFillFood(user_in, limit=5):
+def autoFillFood(user_in):
+    """
+    :param user_in:
+    :return:
+    Closest food item to the input <string>
+    """
     payload = {
         "query": user_in
     }
@@ -26,12 +37,3 @@ def autoFillFood(user_in, limit=5):
     response = request.json()
     food = response["common"][0]["food_name"]
     return food
-
-# uIn = input("Enter the food item: ")
-# food = autoFillFood(uIn)
-# print(food)
-# ind = int(input("Enter 0-4 based on the index you choose: "))
-# weight = int(input("Enter the weight in grams: "))
-# chosen = food[ind]
-# calories = getCal(chosen, weight)
-# print(f"Calories for {weight} grams of {chosen}: {calories} calories")

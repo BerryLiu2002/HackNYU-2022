@@ -39,8 +39,11 @@ class Users(db.Model):
 @app.route('/signup', methods=['POST'])
 def signup():
     """
-    Input: username<string>, password, calLimit, exGoal, gender, weight
+    Input: As JSON in body
+           username<string>, password<string>, calLimit<int>, exGoal<int>, gender<string>, weight<int>, height<int>, age<int>
+    Creates user sign-in unless username has been taken
     :return:
+    JSON with result of signup
     """
     if request.method == 'POST':
         username = request.form.get("username")
@@ -62,6 +65,13 @@ def signup():
 
 @app.route('/login', methods=['POST'])
 def login():
+    """
+    Input: As JSON in body
+           Username<string>, password<string>
+           Logs user in if username and password is match
+    :return:
+    JSON with result of login
+    """
     if session.get('logged_in'):
         return {"result": "Already logged in"}
     username = request.form.get("username")
@@ -74,6 +84,11 @@ def login():
 
 @app.route('/logout', methods=['POST'])
 def logout():
+    """
+    Input: None
+    :return:
+    JSON with result of logout
+    """
     if not session['logged_in']:
         return {"result":"No user logged in"}
     session['logged_in'] = None
@@ -82,7 +97,11 @@ def logout():
 @app.route('/getCalories/<string:source>', methods=['POST'])
 def getCalories(source):
     """
-
+    source: "food" -> body as JSON with food<string>
+    source: exercise -> body as JSON with query<string>
+    :param source: "food" or "exercise"
+    :return:
+    JSON with done<bool>, calLimit<int>, calCurr<int>, exCurr<int>, exGoal<int>
     """
     if request.method == "POST":
         data = request.form

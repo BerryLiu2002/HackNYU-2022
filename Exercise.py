@@ -11,6 +11,15 @@ header = {
     }
 
 def calBurned(query, gender=None, weight=None, height=None, age=None):
+    """
+    :param query:
+    :param gender: Optional <string> (accepts "male" or "female")
+    :param weight: Optional <int> (accepts weight in kg)
+    :param height: Optional <int> (accepts height in cm)
+    :param age: Optional <int>
+    :return:
+    Calories burned from exercise
+    """
     payload = json.dumps(
                 {
                 "query":query,
@@ -25,5 +34,3 @@ def calBurned(query, gender=None, weight=None, height=None, age=None):
     results = response.get('exercises')
     calories = results[0].get('nf_calories')
     return calories
-
-calBurned("lifted weights for 30 minutes")
