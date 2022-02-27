@@ -11,9 +11,6 @@ header = {
     }
 
 def calBurned(query, gender=None, weight=None, height=None, age=None):
-    # payload = {
-    #     "query": query
-    # }
     payload = json.dumps(
                 {
                 "query":query,
@@ -26,8 +23,7 @@ def calBurned(query, gender=None, weight=None, height=None, age=None):
     request = requests.post(endpoint + "/v2/natural/exercise", headers=header, data=payload)
     response = request.json()
     results = response.get('exercises')
-    if results:
-        calories = results[0].get('nf_calories')
-    print(response)
+    calories = results[0].get('nf_calories')
+    return calories
 
 calBurned("lifted weights for 30 minutes")
